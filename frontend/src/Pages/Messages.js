@@ -58,13 +58,13 @@ const Messages = ({ friend }) => {
     const [textArea, setTextArea] = useState(null)
     const [allMessages, setAllMessages] = useState([]);
     const [currentMessage, setCurrentMessage] = useState("");
-    const socket = io.connect('http://localhost:5000');
+    const socket = io.connect('https://hepy-backend-abhisheks-projects-b60f698d.vercel.app/');
     console.log('Socket Connection:', socket.connected);
 
 
     const getUser = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/user', {
+            const response = await axios.get('https://hepy-backend-abhisheks-projects-b60f698d.vercel.app//user', {
                 params: { userId }
             })
             setUser(response.data)
@@ -76,7 +76,7 @@ const Messages = ({ friend }) => {
     const getLikedUsers = async (likedProfiles) => {
         try {
             if (likedProfiles && likedProfiles.length > 0) {
-                const response = await axios.get('http://localhost:5000/liked-users', {
+                const response = await axios.get('https://hepy-backend-abhisheks-projects-b60f698d.vercel.app//liked-users', {
                     params: { gender: user.Interested_in }
                 });
 
@@ -143,7 +143,7 @@ const Messages = ({ friend }) => {
 
     const getUsersMessages = async (msguserId, correspondingUserId) => {
         try {
-            const response = await axios.get('http://localhost:5000/messages', {
+            const response = await axios.get('https://hepy-backend-abhisheks-projects-b60f698d.vercel.app//messages', {
                 params: { msguserId, correspondingUserId }
             });
             if (response.data) {
@@ -156,7 +156,7 @@ const Messages = ({ friend }) => {
 
     const getReceivedMessages = async (msguserId, correspondingUserId) => {
         try {
-            const response = await axios.get('http://localhost:5000/messages', {
+            const response = await axios.get('https://hepy-backend-abhisheks-projects-b60f698d.vercel.app//messages', {
                 params: { msguserId: correspondingUserId, correspondingUserId: msguserId }
             });
             if (response.data) {
@@ -213,7 +213,7 @@ const Messages = ({ friend }) => {
         };
 
         try {
-            const response = await axios.post('http://localhost:5000/message', { message: messageData });
+            const response = await axios.post('https://hepy-backend-abhisheks-projects-b60f698d.vercel.app//message', { message: messageData });
             console.log('Message sent successfully:', response.data);
             setNewMessage('');
 
@@ -231,7 +231,7 @@ const Messages = ({ friend }) => {
     }, [socket]);
 
     useEffect(() => {
-        const socket = io.connect('http://localhost:5000');
+        const socket = io.connect('https://hepy-backend-abhisheks-projects-b60f698d.vercel.app/');
         socket.on('connect', () => {
             console.log('Socket Connected:', socket.id);
         });

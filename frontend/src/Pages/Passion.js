@@ -25,7 +25,7 @@ const Passion = () => {
 
   const handlePassionClick = async () => {
     try {
-      const response = await axios.put('http://localhost:5000/user2', {
+      const response = await axios.put('https://hepy-backend-abhisheks-projects-b60f698d.vercel.app//user2', {
         formData: {
           user_id: formData.user_id,
           passions: selectedpassions, 

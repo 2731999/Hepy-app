@@ -33,7 +33,7 @@ const GenderSelector = () => {
   const handleContinueClick = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put('http://localhost:5000/user1', {
+      const response = await axios.put('https://hepy-backend-abhisheks-projects-b60f698d.vercel.app//user1', {
         formData: {
           user_id: formData.user_id,
           gender: selectedGender, 

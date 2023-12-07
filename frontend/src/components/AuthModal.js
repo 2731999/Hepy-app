@@ -27,7 +27,7 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
                 return;
             }
     
-            const response = await axios.post(`http://localhost:5000/${isSignUp ? 'signup' : 'login'}`, { email, password });
+            const response = await axios.post(`https://hepy-backend-abhisheks-projects-b60f698d.vercel.app//${isSignUp ? 'signup' : 'login'}`, { email, password });
     
             setCookie('AuthToken', response.data.token);
             setCookie('UserId', response.data.userId);

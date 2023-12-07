@@ -28,7 +28,7 @@ function Discover() {
 
   const getUser = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/user', {
+      const response = await axios.get('https://hepy-backend-abhisheks-projects-b60f698d.vercel.app//user', {
         params: { userId }
       })
       setUser(response.data)
@@ -40,7 +40,7 @@ function Discover() {
   const getGenderedUsers = async () => {
     try {
       if (user && user.Interested_in) {
-        const response = await axios.get('http://localhost:5000/gendered-users', {
+        const response = await axios.get('https://hepy-backend-abhisheks-projects-b60f698d.vercel.app//gendered-users', {
           params: { gender: user.Interested_in }
         })
         setGenderedUsers(response.data)
@@ -100,7 +100,7 @@ function Discover() {
 
   const logRemovedUserMatches = (removedUserId) => {
     // Fetch matches for the removed user and log them to the console.
-    axios.get('http://localhost:5000/user', { params: { userId: removedUserId } })
+    axios.get('https://hepy-backend-abhisheks-projects-b60f698d.vercel.app//user', { params: { userId: removedUserId } })
       .then((response) => {
         const removedUserMatches = response.data.matches;
         console.log(`Matches for the removed user (ID: ${removedUserId}):`, removedUserMatches);
@@ -114,7 +114,7 @@ function Discover() {
   const updateMatches = async (matchedUserId) => {
     try {
       // Add the matched user ID to the likedProfiles array in the user's database.
-      const response = await axios.put('http://localhost:5000/addmatch', {
+      const response = await axios.put('https://hepy-backend-abhisheks-projects-b60f698d.vercel.app//addmatch', {
         userId,
         matchedUserId
       });

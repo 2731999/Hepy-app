@@ -66,7 +66,7 @@ const Self = () => {
     
                     // Save the image URL to the database
                     try {
-                        const saveResponse = await axios.post('http://localhost:5000/user3', {
+                        const saveResponse = await axios.post('https://hepy-backend-abhisheks-projects-b60f698d.vercel.app//user3', {
                             userId: cookies.UserId,
                             photoUrl: imageUrl,
                         });
@@ -116,7 +116,7 @@ const Self = () => {
 
     const getUser = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/user', {
+            const response = await axios.get('https://hepy-backend-abhisheks-projects-b60f698d.vercel.app//user', {
                 params: { userId }
             });
             setUser(response.data);

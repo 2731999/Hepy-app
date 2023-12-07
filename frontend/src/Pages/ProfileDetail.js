@@ -42,7 +42,7 @@ const ProfileDetails = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await axios.put('http://localhost:5000/user', {formData})
+            const response = await axios.put('https://hepy-backend-abhisheks-projects-b60f698d.vercel.app//user', {formData})
             const success = response.status === 200
             if (success) navigate('/Notification')
         } catch (err) {
