@@ -38,7 +38,7 @@ io.on('connection', (socket) => {
 });
 
 app.get('/', (req, res) => {
-    res.json('API is running');
+    res.json('API is running in E');
 });
 
 //  Sign up to the Database
