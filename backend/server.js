@@ -84,6 +84,30 @@ app.post('/signup', async (req, res) => {
 });
 
 
+app.post('/check-email-exists', async (req, res) => {
+    const client = new MongoClient(uri);
+    const { email } = req.body;
+
+    try {
+        await client.connect();
+        const database = client.db('hepy-data');
+        const users = database.collection('users');
+
+        const existingUser = await users.findOne({ email });
+
+        if (existingUser) {
+            return res.json({ exists: true });
+        }
+
+        res.json({ exists: false });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    } finally {
+        await client.close();
+    }
+});
+
 
 // Log in to the Database
 app.post('/login', async (req, res) => {
