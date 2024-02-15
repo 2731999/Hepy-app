@@ -26,7 +26,7 @@ function Discover() {
 
   const getUser = async () => {
     try {
-      const response = await axios.get('https://hepy-backend.vercel.app/user', {
+      const response = await axios.get('https://hepy-app-backend.vercel.app/user', {
         params: { userId }
       })
       setUser(response.data)
@@ -38,7 +38,7 @@ function Discover() {
   const getGenderedUsers = async () => {
     try {
       if (user && user.Interested_in) {
-        const response = await axios.get('https://hepy-backend.vercel.app/gendered-users', {
+        const response = await axios.get('https://hepy-app-backend.vercel.app/gendered-users', {
           params: { gender: user.Interested_in }
         })
         setGenderedUsers(response.data)
@@ -97,7 +97,7 @@ function Discover() {
   }
 
   const logRemovedUserMatches = (removedUserId) => {
-    axios.get('https://hepy-backend.vercel.app/user', { params: { userId: removedUserId } })
+    axios.get('https://hepy-app-backend.vercel.app/user', { params: { userId: removedUserId } })
       .then((response) => {
         const removedUserMatches = response.data.matches;
         console.log(`Matches for the removed user (ID: ${removedUserId}):`, removedUserMatches);
@@ -110,7 +110,7 @@ function Discover() {
 
   const updateMatches = async (matchedUserId) => {
     try {
-      const response = await axios.put('https://hepy-backend.vercel.app/addmatch', {
+      const response = await axios.put('https://hepy-app-backend.vercel.app/addmatch', {
         userId,
         matchedUserId
       });

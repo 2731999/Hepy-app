@@ -14,7 +14,6 @@ import FriendPage from "./Pages/FriendPage";
 import LikesAndSuperLikes from "./Pages/LikesAndSuperLikes";
 import Discover from "./Pages/Discover";
 import { useCookies } from "react-cookie"
-import Test from "./Pages/test";
 
 
 const App = ({ user }) => {
@@ -27,7 +26,6 @@ const App = ({ user }) => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path="/Verification" element={<Verification />}/>
-        <Route path="/test" element={<Test />}/>
         {/* {authToken && <Route path="/Verification" element={<Verification />} />} */}
         {authToken && <Route path="/ProfileDetail" element={<ProfileDetail />} />}
         {authToken && <Route path="/Notification" element={<Notification />} />}

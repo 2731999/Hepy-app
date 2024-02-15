@@ -50,7 +50,7 @@ const UploadPhotosComponent = () => {
     const handlePhotosContinue = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.put('https://hepy-backend.vercel.app/user3', {
+            const response = await axios.put('https://hepy-app-backend.vercel.app/user3', {
                 formData: {
                     user_id: formData.user_id,
                     pic: pic,

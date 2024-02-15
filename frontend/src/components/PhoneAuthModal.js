@@ -24,7 +24,7 @@ const PhoneAuthModal = ({ setShowModal, isSignUp }) => {
             const phoneNumberWithCountryCode = `${selectedCountry.value}${phoneNumber}`;
 
             const response = await axios.post(
-                'https://hepy-backend.vercel.app/phonelogin',
+                'https://hepy-app-backend.vercel.app/phonelogin',
                 { phone_number: phoneNumberWithCountryCode, password }
             );
 
