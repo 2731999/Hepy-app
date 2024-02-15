@@ -19,7 +19,7 @@ app.use(express.json());
 const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
-        origin: "https://hepy.vercel.app/",
+        origin: "https://hepy-app-frontend.vercel.app/",
         methods: ["GET", "POST"],
         credentials: true,
     },
